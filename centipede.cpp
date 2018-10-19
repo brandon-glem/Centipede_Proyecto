@@ -20,9 +20,9 @@ int main() {
 	BITMAP *disparo = load_bitmap("level_1/disparo.bmp",NULL);
 	//COORDENADAS DE LA NAVE
 	int X = ANCHO/2;
-	int Y = ALTO - 40;
+	int Y = ALTO - 50;
 	//CANTIDAD DE DISPAROS
-	const int maxdisparos = 30;
+	const int maxdisparos = 2;
     int ndisparos = 0;	//DISPAROS REALIZADOS
     
     Balas disparos[maxdisparos]; //LISTA DE DISPAROS
@@ -35,7 +35,7 @@ int main() {
           masked_blit(nave,buffer,0,0,X,Y,28,40);  //LUGAR DE MOVIMIENTO, TAMAÑO DE LA NAVE
           
           if(key[KEY_D]){
-                             crear_bala(ndisparos, maxdisparos, disparos, X, Y, -11);//X E Y POSICION NAVE, VELOCIDAD
+                             crear_bala(ndisparos, maxdisparos, disparos, X, Y, -40);//X E Y POSICION NAVE, VELOCIDAD
                              dws=1;
                              }
           if(contt++ > 6){ //OJOOOO
