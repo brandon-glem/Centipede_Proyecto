@@ -20,19 +20,17 @@ class nave
               
               int vidas=3;
             
-              nave(char *ruta_nave, char *ruta_disparo){
-                       x=ANCHO/2;
+              nave(char *ruta_nave, char *ruta_disparo)
+             
+              void pinta_nave(BITMAP buffer,)
+              void movimiento();
+};
+
+#endif // NAVE_H
+x=ANCHO/2;
                        y=ALTO-40;
                        n_disp=0;
                        max_disp=10;
                        img_nave = load_bitmap(ruta_nave,NULL);
                        img_disp = load_bitmap(ruta bala,NULL);
                        }
-             
-              void pinta_nave(BITMAP buffer,){
-                               
-                  }
-              void movimiento();
-};
-
-#endif // NAVE_H
