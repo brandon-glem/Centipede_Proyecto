@@ -28,7 +28,7 @@ class nave
               
               //int vidas=3;
             
-              nave(char *ruta_nave, char *ruta_disparo,int ancho_n, int alto_n, int ancho_b, int alto_b);
+              nave(char *ruta_nave, char *ruta_disparo,int ancho_n, int alto_n, int ancho_b, int alto_b, int _x, int _y);
              
               void pinta_nave(BITMAP *buffer);
               
@@ -41,10 +41,10 @@ class nave
 
 #endif // NAVE_H
 
-nave::nave(char *ruta_nave, char *ruta_disparo,int ancho_n, int alto_n, int ancho_b, int alto_b){
+nave::nave(char *ruta_nave, char *ruta_disparo,int ancho_n, int alto_n, int ancho_b, int alto_b, int _x, int _y){
                 //COORDENADAS DE LA NAVE
-                x = ANCHO/2;
-                y = ALTO-90;
+                x = _x;
+                y = _y;
                 //CANTIDAD DE DISPAROS
                 max_disp = 5;
                 n_disp = 0; //DISPAROS REALIZADOS
@@ -66,14 +66,30 @@ void nave::pinta_nave(BITMAP *buffer){
      }
 
 void nave::movimiento(){
-     if(key[KEY_LEFT])
-                      x -= 8;
-     if(key[KEY_RIGHT])
-                       x += 8;
-     if(key[KEY_UP])
-                    y -= 8;
-     if(key[KEY_DOWN])
-                      y += 8;
+     if(key[KEY_LEFT]){
+                       if(x<=40)
+                                x=40;
+                       else
+                           x -= 8;
+                       }
+     if(key[KEY_RIGHT]){
+                        if(x>=610)
+                                  x=610;
+                        else
+                            x += 8;
+                        }
+     if(key[KEY_UP]){
+                     if(y<=125)
+                               y=125;
+                     else
+                         y -= 8;
+                     }
+     if(key[KEY_DOWN]){
+                       if(y>=670)
+                                 y=670;
+                       else
+                           y += 8;
+                       }
      }
 
 bool nave::temporizador(){
