@@ -9,7 +9,7 @@ struct mapa{
 
 void iniciar_mapa(struct mapa hongo[]){
      char pos_hongo[20][25]={ //20x24
-            "H H    H        H   H  H",
+            "H H    H        H   H  H",        //24
             "   H  H       H   H   H ",
             "        H   H        H  ",	
             "  H    H         H      ",					
@@ -28,6 +28,7 @@ void iniciar_mapa(struct mapa hongo[]){
             "      H  H           H  ",			
             "H          H    H       ",								
             "  H  H               H  ",				
+     //20
           };
           
      int r = 0;

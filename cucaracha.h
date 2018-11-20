@@ -10,7 +10,7 @@
 
 class cucaracha
 {
-      private:
+      public:
              BITMAP *img_cucaracha;
              BITMAP *img_obj;
              
@@ -22,16 +22,26 @@ class cucaracha
              int ancho_obj,alto_obj;
              
              bool toca;
+             
+             int dan;
       
-      public:
              cucaracha(char *cuca, char *hongo, int ancho_c, int alto_c, int ancho_h, int alto_h);
-             void crear_obj(BITMAP *buffer);
              void pintar_cucaracha(BITMAP *buffer);
+             void cambio_pos();
              void movimiento(BITMAP *buffer);   
              int aleatorio();
 };
 
-#endif // CUCARACHA_H
+#endif // CUCARACHA_H_INCLUDED
+
+int cucaracha::aleatorio(){
+               int num;
+               srand(time(NULL));
+
+               num = 1 + rand() % (21 - 1);
+               
+               return num;
+               }
 
 cucaracha::cucaracha(char *cuca, char *hongo, int ancho_c, int alto_c, int ancho_h, int alto_h){
                                                     img_cucaracha = load_bitmap(cuca,NULL);
@@ -45,37 +55,33 @@ cucaracha::cucaracha(char *cuca, char *hongo, int ancho_c, int alto_c, int ancho
                                                     
                                                     y=100;
                                                     
-                                                    x = 80;
+                                                    x = 47;
                                                     
                                                     toca = false;
-                                                    }
-
-int cucaracha::aleatorio(){
-               int num;
-               srand(time(NULL));
-
-               num = 1 + rand() % (4 - 1);
-               
-               return num;
-               }
                                                     
-void cucaracha::crear_obj(BITMAP *buffer){
-     masked_blit(img_obj, buffer, 0, 0, xh, yh, ancho_obj, alto_obj);
-     }
+                                                    dan = 0;
+                                                    }
 
 void cucaracha::pintar_cucaracha(BITMAP *buffer){
      masked_blit(img_cucaracha, buffer, 0, 0, x, y, ancho_cucaracha, alto_cucaracha);
      }
 
+void cucaracha::cambio_pos(){
+     x = 24*aleatorio();
+     y = 100;
+     rest(10);
+     }
+
 void cucaracha::movimiento(BITMAP *buffer){
-     if(y<=710){
+     if(y<=710 && dan == 0){
                y += 10;
                }
+     else if(y<=710 && dan == 1){
+               y += 15;
+               }
      else{
-          x += 170;
-          y = 100;
+          cambio_pos();
+          dan = 0;
           }
-     if(x == 760)
-               x = 80;
      }
      

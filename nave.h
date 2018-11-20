@@ -1,5 +1,3 @@
-// 18 columnas y filas de hongos
-
 #include <allegro.h>
 #ifndef NAVE_H_INCLUDED
 #define NAVE_H_INCLUDED
@@ -26,7 +24,7 @@ class nave
               int ancho_bala;
               int alto_bala;
               
-              //int vidas=3;
+              int vidas;
             
               nave(char *ruta_nave, char *ruta_disparo,int ancho_n, int alto_n, int ancho_b, int alto_b, int _x, int _y);
              
@@ -37,9 +35,18 @@ class nave
               bool temporizador();
               
               void dispara(struct Balas disparos[], BITMAP *buffer);
+              
+              void cambio();
 };
 
-#endif // NAVE_H
+
+
+#endif // NAVE_H_INCLUDED
+
+void nave::cambio(){
+                    x=ANCHO/2;
+                    y=ALTO-90;
+     }
 
 nave::nave(char *ruta_nave, char *ruta_disparo,int ancho_n, int alto_n, int ancho_b, int alto_b, int _x, int _y){
                 //COORDENADAS DE LA NAVE
@@ -59,10 +66,12 @@ nave::nave(char *ruta_nave, char *ruta_disparo,int ancho_n, int alto_n, int anch
                 
                 ancho_bala = ancho_b;
                 alto_bala = alto_b;
+                vidas = 3;
                 }
                 
 void nave::pinta_nave(BITMAP *buffer){
-     masked_blit(img_nave,buffer,0,0,x,y,ancho_nave,alto_nave);  //LUGAR DE MOVIMIENTO, TAMAÑO DE LA NAVE
+     if(vidas > 0)
+              masked_blit(img_nave,buffer,0,0,x,y,ancho_nave,alto_nave);  //LUGAR DE MOVIMIENTO, TAMAÑO DE LA NAVE
      }
 
 void nave::movimiento(){
