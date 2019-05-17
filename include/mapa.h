@@ -10,25 +10,25 @@ struct mapa{
 
 void iniciar_mapa(struct mapa hongo[]){
      char pos_hongo[20][25]={ //20x24
-            "H H    H        H   H  H",        //24
-            "   H  H       H   H   H ",
-            "        H   H        H  ",
-            "  H    H         H      ",
-            "H        H         H  H ",
-            "    H          H  H     ",
+            "H H    H                ",        //24
+            "   H  H           H   H ",
+            "H    H   H           H  ",
+            "  H   H          H      ",
+            "H                 H   H ",
+            "    H          H   H    ",
             "      H   H             ",
-            " H      H         H   H ",
-            "H     H                H",
-            "       H             H  ",
-            "     H     H      H   H ",
-            "      H          H  H   ",
+            "       H      H   H   H ",
+            "          H     H      H",
+            "                     H  ",
+            "   H   H    H          H",
+            "      H          H   H  ",
             " H       H             H",
-            "H      H        H       ",
-            "   H      H       H     ",
-            "H       H       H      H",
-            "      H  H           H  ",
-            "H          H    H       ",
-            "  H  H               H  ",
+            "H      H                ",
+            "  H       H       H     ",
+            "H    H          H      H",
+            "   H     H           H  ",
+            "H     H    H    H       ",
+            "  H  H      H     H  H  ",
      //19
           };
 
@@ -49,11 +49,20 @@ void iniciar_mapa(struct mapa hongo[]){
      }
 
 void pinta_mapa(struct mapa HO[], BITMAP *img_hon, BITMAP *buffer){
-     for(int i = 0; i < 64; i++){
+     for(int i = 0; i < 61; i++){
              if(HO[i].dan != 4){
                           masked_blit(img_hon, buffer,HO[i].dan*24, HO[i].tipo*24, HO[i].x, HO[i].y, 24, 24);
                           }
              }
      }
+
+void reconst_hongo(struct mapa HO[]){
+    for(int i = 0; i < 61; i++){
+        if(HO[i].dan != 4 || HO[i].tipo == 1){
+            HO[i].dan = 0;
+            HO[i].tipo = 0;
+        }
+    }
+}
 
 #endif // MAPA_H_INCLUDED

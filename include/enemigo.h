@@ -5,7 +5,7 @@
 class enemigo
 {
     public:
-        virtual void movimiento(BITMAP) =0;
+        virtual void movimiento() =0;
         virtual void cambio_pos() =0;
         virtual int aleatorio() =0;
 };

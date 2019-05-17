@@ -1,3 +1,97 @@
 # depslib dependency file v1.0
-1543324543 source:c:\users\brandon\desktop\centipede_proyect\src\jugador.cpp
+1554478499 source:c:\users\brandon\desktop\centipede_proyect\src\jugador.cpp
+
+1554402429 source:c:\users\brandon\desktop\centipede_proyect\centipede.cpp
+	<allegro.h>
+	<enemigo.h>
+	<stdlib.h>
+	<time.h>
+	"diseno.h"
+	"mapa.h"
+	"jugador.h"
+	"disparos.h"
+	"cucaracha.h"
+	"escorpion.h"
+	"centipedo.h"
+
+1543324990 c:\users\brandon\desktop\centipede_proyect\include\diseno.h
+	<allegro.h>
+
+1553795170 c:\users\brandon\desktop\centipede_proyect\include\mapa.h
+	<allegro.h>
+
+1553966633 c:\users\brandon\desktop\centipede_proyect\include\jugador.h
+	<allegro.h>
+	"disparos.h"
+
+1543329704 c:\users\brandon\desktop\centipede_proyect\include\disparos.h
+	<allegro.h>
+
+1554480162 c:\users\brandon\desktop\centipede_proyect\include\cucaracha.h
+	<enemigo.h>
+	<allegro.h>
+	<stdlib.h>
+	<time.h>
+
+1554403368 c:\users\brandon\desktop\centipede_proyect\include\escorpion.h
+	<enemigo.h>
+	<allegro.h>
+	"disparos.h"
+	"mapa.h"
+
+1554478594 c:\users\brandon\desktop\centipede_proyect\include\centipedo.h
+	<allegro.h>
+	<mapa.h>
+	<disparos.h>
+
+1543499112 c:\users\brandon\desktop\centipede_proyect\include\enemigo.h
+	<allegro.h>
+
+1543499388 source:h:\centipede_proyect\centipede.cpp
+	<allegro.h>
+	<enemigo.h>
+	<stdlib.h>
+	<time.h>
+	"diseno.h"
+	"mapa.h"
+	"jugador.h"
+	"disparos.h"
+	"cucaracha.h"
+	"escorpion.h"
+	"centipedo.h"
+
+1543499112 h:\centipede_proyect\include\enemigo.h
+	<allegro.h>
+
+1543324990 h:\centipede_proyect\include\diseno.h
+	<allegro.h>
+
+1543475858 h:\centipede_proyect\include\mapa.h
+	<allegro.h>
+
+1543464958 h:\centipede_proyect\include\jugador.h
+	<allegro.h>
+	"disparos.h"
+
+1543329704 h:\centipede_proyect\include\disparos.h
+	<allegro.h>
+
+1543499178 h:\centipede_proyect\include\cucaracha.h
+	<enemigo.h>
+	<allegro.h>
+	<stdlib.h>
+	<time.h>
+
+1543499226 h:\centipede_proyect\include\escorpion.h
+	<enemigo.h>
+	<allegro.h>
+	"disparos.h"
+	"mapa.h"
+
+1543475354 h:\centipede_proyect\include\centipedo.h
+	<allegro.h>
+	<mapa.h>
+	<disparos.h>
+
+1543324544 source:h:\centipede_proyect\src\jugador.cpp
 

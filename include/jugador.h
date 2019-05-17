@@ -39,11 +39,21 @@ class nave
               void cambio();
 
               void explocion_nave(BITMAP *img_explocion, BITMAP *buffer, BITMAP *fondo);
+
+              void imprimir_vidas(BITMAP *buffer, BITMAP *nave);
+
+              void cambiar_imagen(char *ruta_nave, char *ruta_disparo);
 };
 
 
 
 #endif // JUGADOR_H
+
+void nave::imprimir_vidas(BITMAP *buffer, BITMAP *nave){
+    for(int i = 1; i <= vidas; i++){
+        masked_blit(nave,buffer,0,0,565+(13*i),133,13,15);
+    }
+}
 
 void nave::cambio(){
                     x=ANCHO/2;
@@ -119,3 +129,8 @@ void nave::dispara(struct Balas disparos[], BITMAP *buffer){
      pintar_bala(n_disp, max_disp, disparos, buffer, img_disp, ancho_bala, alto_bala);
      elimina_bala(n_disp, max_disp, disparos, ANCHO, ALTO);
      }
+
+void nave::cambiar_imagen(char *ruta_nave, char *ruta_disparo){
+    img_nave = load_bitmap(ruta_nave,NULL);
+    img_disp = load_bitmap(ruta_disparo,NULL);
+}

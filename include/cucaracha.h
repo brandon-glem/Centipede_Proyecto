@@ -1,3 +1,4 @@
+#include <enemigo.h>
 #include <allegro.h>
 #include <stdlib.h>
 #include <time.h>
@@ -8,8 +9,7 @@
 #define ANCHO 680
 #define ALTO 748
 
-class cucaracha
-{
+class cucaracha:public enemigo{
       public:
              BITMAP *img_cucaracha;
              BITMAP *img_obj;
@@ -28,8 +28,9 @@ class cucaracha
              cucaracha(char *cuca, char *hongo, int ancho_c, int alto_c, int ancho_h, int alto_h);
              void pintar_cucaracha(BITMAP *buffer,int mov);
              void cambio_pos();
-             void movimiento(BITMAP *buffer);
+             void movimiento();
              int aleatorio();
+             void cambiar_imagen(char *cuca);
 };
 
 #endif // CUCARACHA_H_INCLUDED
@@ -38,7 +39,7 @@ int cucaracha::aleatorio(){
                int num;
                srand(time(NULL));
 
-               num = 1 + rand() % (25 - 1);
+               num = 1 + rand() % (24);
 
                return num;
                }
@@ -67,12 +68,12 @@ void cucaracha::pintar_cucaracha(BITMAP *buffer,int mov){
      }
 
 void cucaracha::cambio_pos(){
-     x = 24*aleatorio();
+     x = 47+(24*aleatorio());
      y = 100;
      rest(10);
      }
 
-void cucaracha::movimiento(BITMAP *buffer){
+void cucaracha::movimiento(){
      if(y <= 720 && dan == 0){
                y += 10;
                }
@@ -83,3 +84,6 @@ void cucaracha::movimiento(BITMAP *buffer){
           rest(10);
           }
      }
+void cucaracha::cambiar_imagen(char *cuca){
+    img_cucaracha = load_bitmap(cuca,NULL);
+}

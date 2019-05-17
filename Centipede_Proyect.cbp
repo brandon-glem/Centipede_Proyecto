@@ -38,6 +38,7 @@
 		<Unit filename="include/cucaracha.h" />
 		<Unit filename="include/diseno.h" />
 		<Unit filename="include/disparos.h" />
+		<Unit filename="include/enemigo.h" />
 		<Unit filename="include/escorpion.h" />
 		<Unit filename="include/jugador.h" />
 		<Unit filename="include/mapa.h" />

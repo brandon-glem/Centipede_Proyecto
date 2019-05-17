@@ -1,3 +1,4 @@
+#include <enemigo.h>
 #include <allegro.h>
 #include "disparos.h"
 #include "mapa.h"
@@ -8,8 +9,7 @@
 #define ANCHO 680
 #define ALTO 748
 
-class escorpion
-{
+class escorpion:public enemigo{
       public:
              BITMAP *img_escorpion;
              BITMAP *img_obj;
@@ -21,11 +21,12 @@ class escorpion
 
              int direc;
 
-             escorpion(char *esco, char *hongo, int ancho_e, int alto_e, int ancho_h, int alto_h);
+             escorpion(char *esco, int ancho_e, int alto_e);
              void pintar_escorpion(BITMAP *buffer, int mov);
-             void movimiento(BITMAP *buffer);
+             void movimiento();
              void cambio_pos();
              int aleatorio();
+             void cambiar_imagen(char *esco);
 };
 
 #endif // CUCARACHA_H_INCLUDED
@@ -34,12 +35,12 @@ int escorpion::aleatorio(){
                int num;
                srand(time(NULL));
 
-               num = 1 + rand() % (20 - 1);
+               num = 1 + rand() % (19);
 
                return num;
                }
 
-escorpion::escorpion(char *esco, char *hongo, int ancho_e, int alto_e, int ancho_h, int alto_h){
+escorpion::escorpion(char *esco, int ancho_e, int alto_e){
                                                     img_escorpion = load_bitmap(esco,NULL);
 
                                                     ancho_escorpion = ancho_e;
@@ -48,8 +49,6 @@ escorpion::escorpion(char *esco, char *hongo, int ancho_e, int alto_e, int ancho
                                                     y=154;
 
                                                     x = 30;
-
-                                                    mov=0;
 
                                                     direc = 1;
                                                     }
@@ -61,26 +60,26 @@ void escorpion::pintar_escorpion(BITMAP *buffer, int mov){
 void escorpion::cambio_pos(){
      if(x == 650 || x < ANCHO/2){
           x = 650;
-          y = 20*aleatorio();
+          y = 154+(24*aleatorio());
           direc = 0;
           rest(10);
           }
 
      else if(x == 30 || x > ANCHO/2 ){
           x = 30;
-          y = 20*aleatorio();
+          y = 154+(24*aleatorio());
           direc = 1;
           rest(10);
           }
      }
 
-void escorpion::movimiento(BITMAP *buffer){
+void escorpion::movimiento(){
      if(x < 650 && direc == 1){
-               x += 10;
+               x += 8;
                }
 
      else if(x > 30 && direc == 0){
-               x -= 10;
+               x -= 8;
                }
 
      else{
@@ -88,3 +87,7 @@ void escorpion::movimiento(BITMAP *buffer){
           rest(10);
           }
      }
+
+void escorpion::cambiar_imagen(char *esco){
+    img_escorpion = load_bitmap(esco,NULL);
+}
